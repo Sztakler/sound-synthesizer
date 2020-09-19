@@ -14,8 +14,6 @@ Synthesizer::~Synthesizer()
     {
         delete[](raw);
     }
-
-    this->generate_samples();
 }
 
 void Synthesizer::generate_sample(Constants::Notes note)

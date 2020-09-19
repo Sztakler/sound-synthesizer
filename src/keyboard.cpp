@@ -5,6 +5,7 @@
 Keyboard::Keyboard()
 {
     this-> synthesizer = Synthesizer();
+    this->synthesizer.generate_samples();
 
     for(int i = 0; i < 88; i++)
     {
@@ -84,34 +85,53 @@ void Keyboard::set_keys_position()
 
 
 void Keyboard::press_key(Constants::Notes note)
-{
-    this->pressed_key = this->keys[note];    
-    if(this->keys[note]->rectangle.getFillColor() == sf::Color(0, 0, 0))
+{  
+    std::cout << this->key_pressed << " " << this->pressed_key << std::endl;
+
+
+    if(!this->key_pressed)
     {
-        this->keys[note]->rectangle.setFillColor(sf::Color(3, 175, 11, 150));
+        this->key_pressed = true;
+        this->pressed_key = this->keys[note];
+        this->play();
+
+        if(this->pressed_key->rectangle.getFillColor() == sf::Color(0, 0, 0))
+        {
+            this->pressed_key->rectangle.setFillColor(sf::Color(3, 175, 11, 150));
+        }
+        else 
+        {
+            this->pressed_key->rectangle.setFillColor(sf::Color(70, 251, 79, 255));
+        }    
     }
-    else 
-    {
-        this->keys[note]->rectangle.setFillColor(sf::Color(70, 251, 79, 255));
-    }
+        
 }
 
 void Keyboard::release_key(Constants::Notes note)
 {
-    this->pressed_key = NULL;
-    if(this->keys[note]->rectangle.getFillColor() == sf::Color(70, 251, 79, 255))
+    if(this->key_pressed)
     {
-        this->keys[note]->rectangle.setFillColor(sf::Color(255, 255, 255, 255));
+        this->key_pressed = false;
+        this->synthesizer.stop();
+
+        if(this->pressed_key->rectangle.getFillColor() == sf::Color(70, 251, 79, 255))
+        {
+            this->pressed_key->rectangle.setFillColor(sf::Color(255, 255, 255, 255));
+        }
+        else 
+        {
+            this->pressed_key->rectangle.setFillColor(sf::Color(0, 0, 0, 255));
+        } 
+
+        this->pressed_key = NULL;
     }
-    else 
-    {
-        this->keys[note]->rectangle.setFillColor(sf::Color(0, 0, 0, 255));
-    }
+
 }
 
 void Keyboard::play()
 {
-
+    Constants::Notes note = this->pressed_key->get_note();
+    this->synthesizer.play(note);
 }
 
 

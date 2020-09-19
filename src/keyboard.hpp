@@ -13,6 +13,7 @@ class Keyboard : public sf::Sprite
         std::vector<Key*> black_keys;
         std::vector<Key*> white_keys;
         Key* pressed_key;
+        bool key_pressed;
         Synthesizer synthesizer;
 
     public:

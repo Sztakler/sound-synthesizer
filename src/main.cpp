@@ -18,18 +18,17 @@ int main()
     window.setFramerateLimit(144);
 
     synthesizer.generate_samples();
+    // synthesizer.generate_samples();
     while(window.isOpen())
     {
         window.clear(sf::Color(50, 50, 50));
         window.draw(keyboard);  
         
         sf::Event event;
-       
         while(window.pollEvent(event))
         {
             if(event.type == sf::Event::Closed)
             {
-
                 window.close();
             }
             else if(event.type == sf::Event::KeyPressed)
@@ -41,14 +40,14 @@ int main()
                 else 
                 {
                     Constants::Notes note = Constants::white_key_to_note_map.find(event.key.code)->second;
-                    synthesizer.play(note);
+                    // synthesizer.play(note);
+                    
                     keyboard.press_key(note);
                 }
             }
             else if(event.type == sf::Event::KeyReleased) 
             {
                 Constants::Notes note = Constants::white_key_to_note_map.find(event.key.code)->second;
-                synthesizer.stop();
                 keyboard.release_key(note);
             }
         }

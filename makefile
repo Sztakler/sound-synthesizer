@@ -14,7 +14,7 @@ SRC_PATH = ./$(SRC_DIR)/
 
 
 $(NAME): $(OBJ_DIR) $(OBJ)
-	$(GPP) $(OBJ_PATH)*.o $(LINKER_FLAGS) -g -o $(NAME)
+	$(GPP) $(OBJ_PATH)*.o $(LINKER_FLAGS) -o $(NAME)
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
