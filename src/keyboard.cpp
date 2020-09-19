@@ -4,6 +4,8 @@
 
 Keyboard::Keyboard()
 {
+    this-> synthesizer = Synthesizer();
+
     for(int i = 0; i < 88; i++)
     {
         sf::Vector2f size(11.75, 90);
@@ -83,18 +85,20 @@ void Keyboard::set_keys_position()
 
 void Keyboard::press_key(Constants::Notes note)
 {
-        if(this->keys[note]->rectangle.getFillColor() == sf::Color(0, 0, 0))
-        {
-            this->keys[note]->rectangle.setFillColor(sf::Color(3, 175, 11, 150));
-        }
-        else 
-        {
-            this->keys[note]->rectangle.setFillColor(sf::Color(70, 251, 79, 255));
-        }
+    this->pressed_key = this->keys[note];    
+    if(this->keys[note]->rectangle.getFillColor() == sf::Color(0, 0, 0))
+    {
+        this->keys[note]->rectangle.setFillColor(sf::Color(3, 175, 11, 150));
+    }
+    else 
+    {
+        this->keys[note]->rectangle.setFillColor(sf::Color(70, 251, 79, 255));
+    }
 }
 
 void Keyboard::release_key(Constants::Notes note)
 {
+    this->pressed_key = NULL;
     if(this->keys[note]->rectangle.getFillColor() == sf::Color(70, 251, 79, 255))
     {
         this->keys[note]->rectangle.setFillColor(sf::Color(255, 255, 255, 255));
@@ -103,6 +107,11 @@ void Keyboard::release_key(Constants::Notes note)
     {
         this->keys[note]->rectangle.setFillColor(sf::Color(0, 0, 0, 255));
     }
+}
+
+void Keyboard::play()
+{
+
 }
 
 
