@@ -7,7 +7,7 @@ class Key : public sf::Sprite
 {
     public:
         sf::RectangleShape rectangle;
-        Constants::Notes note;
+        Constants::Notes note = Constants::Notes::None;
         sf::Color color;
 
     public:

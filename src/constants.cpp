@@ -1,11 +1,20 @@
 #include "constants.hpp"
 
+//  A0, Bb0, B0, C1, Db1, D1, Eb1, E1, F1, Gb1, G1, Ab1,
+
+
 const std::map<sf::Keyboard::Key, Constants::Notes> Constants::white_key_to_note_map = 
-    {{sf::Keyboard::Num1, Notes::A4},
-     {sf::Keyboard::Num2, Notes::Bb4}, {sf::Keyboard::Num3, Notes::B4}, {sf::Keyboard::Num4, Notes::C5}, 
-     {sf::Keyboard::Num5, Notes::Db5}, {sf::Keyboard::Num6, Notes::D5}, {sf::Keyboard::Num7, Notes::Eb5},
-     {sf::Keyboard::Num8, Notes::E5}, {sf::Keyboard::Num9, Notes::F5}, {sf::Keyboard::Num0, Notes::Gb5}
+    {{sf::Keyboard::Num1, Notes::A0},
+     {sf::Keyboard::Num2, Notes::B0}, {sf::Keyboard::Num3, Notes::C1}, {sf::Keyboard::Num4, Notes::D1}, 
+     {sf::Keyboard::Num5, Notes::E1}, {sf::Keyboard::Num6, Notes::F1}, {sf::Keyboard::Num7, Notes::G1}
      };
+
+const std::map<sf::Keyboard::Key, Constants::Notes> Constants::black_key_to_note_map = 
+    {
+     {sf::Keyboard::Num1, Notes::Bb0}, {sf::Keyboard::Num3, Notes::Db1}, 
+     {sf::Keyboard::Num4, Notes::Eb1}, {sf::Keyboard::Num6, Notes::Gb1}, {sf::Keyboard::Num7, Notes::Ab1}
+    };
+
 
 const double Constants::FREQUENCIES[88] = {27.5, 29.13523509488062, 30.86770632850775, 32.70319566257483, 34.64782887210901,
                                         36.70809598967594, 38.890872965260115, 41.20344461410875, 43.653528929125486,

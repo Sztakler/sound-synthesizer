@@ -132,6 +132,7 @@ void Keyboard::play()
 {
     Constants::Notes note = this->pressed_key->get_note();
     this->synthesizer.play(note);
+    std::cout << "Note: " << note << std::endl;
 }
 
 

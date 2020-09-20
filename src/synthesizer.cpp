@@ -25,7 +25,6 @@ void Synthesizer::generate_sample(Constants::Notes note)
     for (unsigned i = 0; i < SAMPLES; i++)
     {
         int sgn = sin(x * Constants::TWO_PI) > 0 ? 1 : -1;
-        // raw[i] = Constants::AMPLITUDE *sin(x * Constants::TWO_PI);
         raw[i] = sgn * 5;
         x += increment;
     }
@@ -53,8 +52,6 @@ void Synthesizer::generate_samples()
         for (unsigned j = 0; j < SAMPLES; j++)
         {
             raw[j] = Constants::AMPLITUDE * sin(x * Constants::TWO_PI);
-            // sgn = sin(x * Constants::TWO_PI) > 0 ? 1 : -1;
-            // raw[j] = sgn * 15000;
             x += increment;
         }
 

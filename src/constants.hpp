@@ -15,9 +15,9 @@ class Constants
                     A4, Bb4, B4, C5, Db5, D5, Eb5, E5, F5, Gb5, G5, Ab5,
                     A5, Bb5, B5, C6, Db6, D6, Eb6, E6, F6, Gb6, G6, Ab6,
                     A6, Bb6, B6, C7, Db7, D7, Eb7, E7, F7, Gb7, G7, Ab7,
-                    A7, Bb7, B7, C8};
-        const static std::map<sf::Keyboard::Key , Notes> white_key_to_note_map;
-        const static std::map<std::pair<sf::Keyboard::Key, sf::Keyboard::Key>, Notes> black_key_to_note_map;
+                    A7, Bb7, B7, C8, None};
+        const static std::map<sf::Keyboard::Key, Notes> white_key_to_note_map;
+        const static std::map<sf::Keyboard::Key, Notes> black_key_to_note_map;
         const static unsigned AMPLITUDE = 30000;
         const static double TWO_PI;
         const static double FREQUENCIES[88];
