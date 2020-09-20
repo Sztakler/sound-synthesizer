@@ -1,18 +1,52 @@
 #include "constants.hpp"
 
-//  A0, Bb0, B0, C1, Db1, D1, Eb1, E1, F1, Gb1, G1, Ab1,
+//  Bb0, Db1, Eb1, Gb1, Ab1, Bb1,
 
 
 const std::map<sf::Keyboard::Key, Constants::Notes> Constants::white_key_to_note_map = 
-    {{sf::Keyboard::Num1, Notes::A0},
-     {sf::Keyboard::Num2, Notes::B0}, {sf::Keyboard::Num3, Notes::C1}, {sf::Keyboard::Num4, Notes::D1}, 
-     {sf::Keyboard::Num5, Notes::E1}, {sf::Keyboard::Num6, Notes::F1}, {sf::Keyboard::Num7, Notes::G1}
-     };
+    {
+        {sf::Keyboard::F1, Notes::A0}, {sf::Keyboard::F2, Notes::B0},
+        {sf::Keyboard::F3, Notes::C1}, {sf::Keyboard::F4, Notes::D1}, 
+        {sf::Keyboard::F5, Notes::E1}, {sf::Keyboard::F6, Notes::F1}, {sf::Keyboard::F7, Notes::G1}, 
+        {sf::Keyboard::F8, Notes::A1}, {sf::Keyboard::F9, Notes::B1}, 
+        {sf::Keyboard::F10, Notes::C2}, {sf::Keyboard::F11, Notes::D2}, 
+        {sf::Keyboard::F12, Notes::E2}, {sf::Keyboard::Num1, Notes::F2}, {sf::Keyboard::Num2, Notes::G2}, 
+        {sf::Keyboard::Num3, Notes::A2}, {sf::Keyboard::Num4, Notes::B2},
+        {sf::Keyboard::Num5, Notes::C3}, {sf::Keyboard::Num6, Notes::D3}, 
+        {sf::Keyboard::Num7, Notes::E3}, {sf::Keyboard::Num8, Notes::F3}, {sf::Keyboard::Num9, Notes::G3}, 
+        {sf::Keyboard::Num0, Notes::A3}, {sf::Keyboard::Dash, Notes::B3}, 
+        {sf::Keyboard::Equal, Notes::C4}, {sf::Keyboard::Q, Notes::D4}, 
+        {sf::Keyboard::W, Notes::E4}, {sf::Keyboard::E, Notes::F4}, {sf::Keyboard::R, Notes::G4}, 
+        {sf::Keyboard::T, Notes::A4}, {sf::Keyboard::Y, Notes::B4}, 
+        {sf::Keyboard::U, Notes::C5}, {sf::Keyboard::I, Notes::D5}, 
+        {sf::Keyboard::O, Notes::E5}, {sf::Keyboard::P, Notes::F5}, {sf::Keyboard::LBracket, Notes::G5}, 
+        {sf::Keyboard::RBracket, Notes::A5}, {sf::Keyboard::Backslash, Notes::B5},  
+        {sf::Keyboard::A, Notes::C6}, {sf::Keyboard::S, Notes::D6}, 
+        {sf::Keyboard::D, Notes::E6}, {sf::Keyboard::F, Notes::F6}, {sf::Keyboard::G, Notes::G6}, 
+        {sf::Keyboard::H, Notes::A6}, {sf::Keyboard::J, Notes::B6}, 
+        {sf::Keyboard::K, Notes::C7}, {sf::Keyboard::L, Notes::D7}, 
+        {sf::Keyboard::Semicolon, Notes::E7}, {sf::Keyboard::Quote, Notes::F7}, {sf::Keyboard::Z, Notes::G7}, 
+        {sf::Keyboard::X, Notes::A7}, {sf::Keyboard::C, Notes::B7}, 
+        {sf::Keyboard::V, Notes::C8}
+    };
 
 const std::map<sf::Keyboard::Key, Constants::Notes> Constants::black_key_to_note_map = 
     {
-     {sf::Keyboard::Num1, Notes::Bb0}, {sf::Keyboard::Num3, Notes::Db1}, 
-     {sf::Keyboard::Num4, Notes::Eb1}, {sf::Keyboard::Num6, Notes::Gb1}, {sf::Keyboard::Num7, Notes::Ab1}
+        {sf::Keyboard::F1, Notes::Bb0}, 
+        {sf::Keyboard::F3, Notes::Db1}, {sf::Keyboard::F4, Notes::Eb1}, {sf::Keyboard::F6, Notes::Gb1},
+        {sf::Keyboard::F7, Notes::Ab1}, {sf::Keyboard::F8, Notes::Bb1},
+        {sf::Keyboard::F10, Notes::Db2}, {sf::Keyboard::F11, Notes::Eb2}, {sf::Keyboard::Num1, Notes::Gb2},
+        {sf::Keyboard::Num2, Notes::Ab2}, {sf::Keyboard::Num3, Notes::Bb2},
+        {sf::Keyboard::Num5, Notes::Db3}, {sf::Keyboard::Num6, Notes::Eb3}, {sf::Keyboard::Num8, Notes::Gb3},
+        {sf::Keyboard::Num9, Notes::Ab3}, {sf::Keyboard::Num0, Notes::Bb3},
+        {sf::Keyboard::Equal, Notes::Db4}, {sf::Keyboard::Q, Notes::Eb4}, {sf::Keyboard::E, Notes::Gb4},
+        {sf::Keyboard::R, Notes::Ab4}, {sf::Keyboard::T, Notes::Bb4},
+        {sf::Keyboard::U, Notes::Db5}, {sf::Keyboard::I, Notes::Eb5}, {sf::Keyboard::P, Notes::Gb5},
+        {sf::Keyboard::LBracket, Notes::Ab5}, {sf::Keyboard::RBracket, Notes::Bb5},
+        {sf::Keyboard::A, Notes::Db6}, {sf::Keyboard::S, Notes::Eb6}, {sf::Keyboard::F, Notes::Gb6},
+        {sf::Keyboard::G, Notes::Ab6}, {sf::Keyboard::H, Notes::Bb6},
+        {sf::Keyboard::K, Notes::Db7}, {sf::Keyboard::L, Notes::Eb7}, {sf::Keyboard::Quote, Notes::Gb7},
+        {sf::Keyboard::Z, Notes::Ab7}, {sf::Keyboard::X, Notes::Bb7} 
     };
 
 
