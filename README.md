@@ -28,7 +28,7 @@ You'll need the program itself, so don't forget to
 git clone https://github.com/Sztakler/sound-synthesizer
 ```
 
-Then you can <b>Make</b> and execute this program typing
+Then you can <b>make</b> and execute this program typing
 ```
 make && ./sound-synthesizer
 ```
