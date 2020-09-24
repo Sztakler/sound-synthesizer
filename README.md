@@ -39,5 +39,5 @@ g++ src/*.cpp -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio && ./a.ou
 should do the work.
 
 ### Important note
-I strongly recommend not playing any other sounds on your computer while using this synthesizer nor recording anything.
+I strongly recommend not playing any other sounds on your computer while using this synthesizer or recording anything.
 It may lead to some serious issues with sampling <i>(earrape warning)</i>.
