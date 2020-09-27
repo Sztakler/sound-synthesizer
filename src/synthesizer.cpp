@@ -49,9 +49,18 @@ void Synthesizer::generate_samples()
         
         sf::Int16* raw = new sf::Int16[SAMPLES];
 
-        for (unsigned j = 0; j < SAMPLES; j++)
+        // Sine wave
+        // for (unsigned j = 0; j < SAMPLES; j++)
+        // {
+        //     raw[j] = Constants::AMPLITUDE * sin(x * Constants::TWO_PI);
+        //     x += increment;
+        // }
+
+        // Square wave
+        for (unsigned i = 0; i < SAMPLES; i++)
         {
-            raw[j] = Constants::AMPLITUDE * sin(x * Constants::TWO_PI);
+            int sgn = sin(x * Constants::TWO_PI) > 0 ? 1 : -1;
+            raw[i] = sgn * 9000;
             x += increment;
         }
 

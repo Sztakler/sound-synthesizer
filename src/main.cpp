@@ -15,9 +15,10 @@ int main()
     int width = 1498.25;
     int heigth = 600;
     sf::RenderWindow window(sf::VideoMode(width,heigth),"8-bit Keyboard");
-    window.setFramerateLimit(144);
+    window.setFramerateLimit(330);
 
     synthesizer.generate_samples();
+
 
     while(window.isOpen())
     {

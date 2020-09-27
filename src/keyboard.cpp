@@ -85,10 +85,7 @@ void Keyboard::set_keys_position()
 
 
 void Keyboard::press_key(Constants::Notes note)
-{  
-    std::cout << this->key_pressed << " " << this->pressed_key << std::endl;
-
-
+{
     if(!this->key_pressed)
     {
         this->key_pressed = true;
@@ -132,7 +129,6 @@ void Keyboard::play()
 {
     Constants::Notes note = this->pressed_key->get_note();
     this->synthesizer.play(note);
-    std::cout << "Note: " << note << std::endl;
 }
 
 
