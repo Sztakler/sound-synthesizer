@@ -16,8 +16,9 @@ int main()
     int heigth = 600;
     sf::RenderWindow window(sf::VideoMode(width,heigth),"8-bit Keyboard");
     window.setFramerateLimit(330);
+    window.setKeyRepeatEnabled(false);
 
-    synthesizer.generate_samples();
+    // synthesizer.generate_samples();
 
 
     while(window.isOpen())

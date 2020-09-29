@@ -1,14 +1,14 @@
 #include "key.hpp"
 #include <iostream>
 
-Key::Key() : color(sf::Color((255, 255, 255))), note(Constants::A4)
+Key::Key() : color(sf::Color((255, 255, 255))), note(Constants::A4), pressed(false)
 {
     this->rectangle = sf::RectangleShape(sf::Vector2f(30, 10));
     this->rectangle.move(0, 0);
     this->rectangle.setFillColor(sf::Color((255, 255, 255)));
 }
 
-Key::Key(sf::Vector2f size, sf::Vector2i position, Constants::Notes note) 
+Key::Key(sf::Vector2f size, sf::Vector2i position, Constants::Notes note) : pressed(false)
 {
     this->note = note;
     this->rectangle = sf::RectangleShape(sf::Vector2f(size.x, size.y));
@@ -17,6 +17,8 @@ Key::Key(sf::Vector2f size, sf::Vector2i position, Constants::Notes note)
     this->rectangle.setFillColor(sf::Color(255, 255, 255));
     return;
 }
+
+Key::~Key() {}
 
 void Key::set_color()
 {
@@ -41,7 +43,15 @@ Constants::Notes Key::get_note()
     return this->note;
 }
 
-Key::~Key() {}
+void Key::play(Synthesizer* synthesizer)
+{
+    synthesizer->play(this->note);
+}
+
+void Key::stop(Synthesizer* synthesizer)
+{
+    synthesizer->stop(this->note);
+}
 
 void Key::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {

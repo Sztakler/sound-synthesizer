@@ -1,6 +1,7 @@
 #pragma once
 
 #include "constants.hpp"
+#include "synthesizer.hpp"
 #include <SFML/Graphics.hpp>
 
 class Key : public sf::Sprite
@@ -9,6 +10,7 @@ class Key : public sf::Sprite
         sf::RectangleShape rectangle;
         Constants::Notes note = Constants::Notes::None;
         sf::Color color;
+        bool pressed;
 
     public:
         Key();
@@ -17,6 +19,8 @@ class Key : public sf::Sprite
 
     public:
         Constants::Notes get_note();
+        void play(Synthesizer* synthesizer);
+        void stop(Synthesizer* synthesizer);
 
     public:
         void set_color();

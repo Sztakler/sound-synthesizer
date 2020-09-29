@@ -12,9 +12,10 @@ class Keyboard : public sf::Sprite
         std::vector<Key*> keys;
         std::vector<Key*> black_keys;
         std::vector<Key*> white_keys;
+        std::vector<Key*> pressed_keys;
         Key* pressed_key;
         bool key_pressed;
-        Synthesizer synthesizer;
+        Synthesizer* synthesizer;
 
     public:
         Keyboard();
@@ -25,6 +26,7 @@ class Keyboard : public sf::Sprite
         void press_key(Constants::Notes note);
         void release_key(Constants::Notes note);
         void play();
+        void stop();
 
     private:
         virtual void draw(sf::RenderTarget&, sf::RenderStates) const;

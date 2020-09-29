@@ -1,11 +1,13 @@
 #include "keyboard.hpp"
 #include "constants.hpp"
 #include <iostream>
+#include <algorithm>
 
 Keyboard::Keyboard()
 {
-    this-> synthesizer = Synthesizer();
-    this->synthesizer.generate_samples();
+    this->synthesizer = new Synthesizer();
+    this->synthesizer->generate_samples(Constants::WaveType::Square);
+
 
     for(int i = 0; i < 88; i++)
     {
@@ -17,8 +19,6 @@ Keyboard::Keyboard()
     }
 
     this->set_keys_position();
-
-
 }
 
 Keyboard::~Keyboard() 
@@ -86,49 +86,116 @@ void Keyboard::set_keys_position()
 
 void Keyboard::press_key(Constants::Notes note)
 {
-    if(!this->key_pressed)
+    Key* pressed_key = this->keys[note];
+
+    if(!pressed_key->pressed)
     {
-        this->key_pressed = true;
-        this->pressed_key = this->keys[note];
+        pressed_key->pressed = true;
+        this->pressed_keys.push_back(pressed_key);
         this->play();
 
-        if(this->pressed_key->rectangle.getFillColor() == sf::Color(0, 0, 0))
+        if(pressed_key->rectangle.getFillColor() == sf::Color(0, 0, 0))
         {
-            this->pressed_key->rectangle.setFillColor(sf::Color(3, 175, 11, 150));
+            pressed_key->rectangle.setFillColor(sf::Color(3, 175, 11, 150));
         }
         else 
         {
-            this->pressed_key->rectangle.setFillColor(sf::Color(70, 251, 79, 255));
+            pressed_key->rectangle.setFillColor(sf::Color(70, 251, 79, 255));
         }    
     }
+    // if(!this->key_pressed)
+    // {
+    //     this->key_pressed = true;
+    //     this->pressed_key = this->keys[note];
+    //     this->playing_notes.push_back(this->pressed_key);
+    //     this->play();
+
+    //     if(this->pressed_key->rectangle.getFillColor() == sf::Color(0, 0, 0))
+    //     {
+    //         this->pressed_key->rectangle.setFillColor(sf::Color(3, 175, 11, 150));
+    //     }
+    //     else 
+    //     {
+    //         this->pressed_key->rectangle.setFillColor(sf::Color(70, 251, 79, 255));
+    //     }    
+    // }
         
 }
 
 void Keyboard::release_key(Constants::Notes note)
 {
-    if(this->key_pressed)
+    for(Key* key : this->pressed_keys)
     {
-        this->key_pressed = false;
-        this->synthesizer.stop();
+            key->pressed = false;
+            
+            int index = 0;
 
-        if(this->pressed_key->rectangle.getFillColor() == sf::Color(70, 251, 79, 255))
-        {
-            this->pressed_key->rectangle.setFillColor(sf::Color(255, 255, 255, 255));
-        }
-        else 
-        {
-            this->pressed_key->rectangle.setFillColor(sf::Color(0, 0, 0, 255));
-        } 
+            for(Key* pressed_key : this->pressed_keys)
+            {
+                if(key == pressed_key)
+                {
+                    key->stop(this->synthesizer);
+                    if(key->rectangle.getFillColor() == sf::Color(70, 251, 79, 255))
+                    {
+                        key->rectangle.setFillColor(sf::Color(255, 255, 255, 255));
+                    }
+                    else 
+                    {
+                        key->rectangle.setFillColor(sf::Color(0, 0, 0, 255));
+                    } 
 
-        this->pressed_key = NULL;
+                    this->pressed_keys.erase(this->pressed_keys.begin() + index);
+                }
+                else index++;
+            }
+
+
+            // this->synthesizer->stop(note);
+
+            // if(key->rectangle.getFillColor() == sf::Color(70, 251, 79, 255))
+            // {
+            //     key->rectangle.setFillColor(sf::Color(255, 255, 255, 255));
+            // }
+            // else 
+            // {
+            //     key->rectangle.setFillColor(sf::Color(0, 0, 0, 255));
+            // } 
     }
+
+    // if(this->key_pressed)
+    // {
+    //     this->key_pressed = false;
+    //     this->synthesizer.stop();
+
+    //     if(this->pressed_key->rectangle.getFillColor() == sf::Color(70, 251, 79, 255))
+    //     {
+    //         this->pressed_key->rectangle.setFillColor(sf::Color(255, 255, 255, 255));
+    //     }
+    //     else 
+    //     {
+    //         this->pressed_key->rectangle.setFillColor(sf::Color(0, 0, 0, 255));
+    //     } 
+
+    //     this->pressed_key = NULL;
+    // }
 
 }
 
 void Keyboard::play()
 {
-    Constants::Notes note = this->pressed_key->get_note();
-    this->synthesizer.play(note);
+    for(Key* key : this->pressed_keys)
+    {
+        key->play(this->synthesizer);
+    }
+
+}
+
+void Keyboard::stop()
+{
+    for(Key* key : this->pressed_keys)
+    {
+        key->stop(this->synthesizer);
+    }
 }
 
 
