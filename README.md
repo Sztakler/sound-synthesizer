@@ -4,7 +4,7 @@ This is my dubious attempt to create a simple 8-bit piano in C++/SFML.
 Key feature of this piano is that it doesn't play prerecorded samples but calculates them during compilation.
 
 ## Features
-- key highlight,
+- active key highlighting,
 - polyphonic,
 - sine and square waveforms,
 - 88 keys,
