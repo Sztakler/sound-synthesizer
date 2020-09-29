@@ -5,7 +5,8 @@ Key feature of this piano is that it doesn't play prerecorded samples but calcul
 
 ## Features
 - key highlight,
-- monophonic,
+- polyphonic,
+- sine and square waveforms,
 - 88 keys,
 - poor coding
 
@@ -16,6 +17,8 @@ Key feature of this piano is that it doesn't play prerecorded samples but calcul
 ![](https://cdn.discordapp.com/attachments/702987071849234636/758007080954101867/SoundSynthesizer_Screenshot_01.png)
 
 ![](https://cdn.discordapp.com/attachments/702987071849234636/758007082552131584/SoundSynthesizer_Screenshot_02.png)
+
+![](https://cdn.discordapp.com/attachments/702987071849234636/760612422850707456/Zrzut_ekranu_z_2020-09-29_23-21-48.png)
 
 ## How to play
  
